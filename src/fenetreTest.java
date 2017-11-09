@@ -21,9 +21,17 @@ public class fenetreTest extends JFrame{
 	private Verrou verrou2;
 	private Verrou verrou3;
 	
+	private JLabel imgVerrou1;
+	private JLabel imgVerrou2;
+	private JLabel imgVerrou3;
+	
 	private Bouton monBouton1;
 	private Bouton monBouton2;
 	private Bouton monBouton3;
+	
+	ImageIcon imgVerrou1II;
+	ImageIcon imgVerrou2II;
+	ImageIcon imgVerrou3II;
 	
 	public fenetreTest(String nomFenetre)
 	{
@@ -52,6 +60,19 @@ public class fenetreTest extends JFrame{
 		// Mise en place de l'interface
 		BorderLayout placement=new BorderLayout();
 		getContentPane().setLayout(placement);	
+		
+		JPanel barreVerrous = new JPanel();
+		getContentPane().add(barreVerrous, BorderLayout.NORTH);
+		barreVerrous.setLayout(new FlowLayout(FlowLayout.CENTER, 8, 40));
+		
+		// Peuplement barre verrous
+		verrousOuvertOuFerme();
+		imgVerrou1 = new JLabel(imgVerrou1II);
+		imgVerrou2 = new JLabel(imgVerrou2II);
+		imgVerrou3 = new JLabel(imgVerrou3II);
+		barreVerrous.add(imgVerrou1);
+		barreVerrous.add(imgVerrou2);
+		barreVerrous.add(imgVerrou3);
 		
 		// Image de fond du jeu
 		ImageIcon monImg = new ImageIcon("coffre_ferme.png");
@@ -89,6 +110,8 @@ public class fenetreTest extends JFrame{
 			if(e.getSource() == bouton1){monBouton1.changerEtat();}
 			if(e.getSource() == bouton2){monBouton2.changerEtat();}
 			if(e.getSource() == bouton3){monBouton3.changerEtat();}
+			verrousOuvertOuFerme();
+			setImageVerrous();
 			
 			if(verrou1.getEtat()==true && verrou2.getEtat()==true && verrou3.getEtat()==true)
 			{
@@ -104,9 +127,46 @@ public class fenetreTest extends JFrame{
 		this.imgFond.setIcon(img);
 	}
 	
+	public void setImageVerrous()
+	{
+		this.imgVerrou1.setIcon(imgVerrou1II);
+		this.imgVerrou2.setIcon(imgVerrou2II);
+		this.imgVerrou3.setIcon(imgVerrou3II);
+	}
+	
 	public void attendreOuverture()
 	{
-		//Delay(2000);
+		//delai(2000);
+	}
+	
+	public void verrousOuvertOuFerme()
+	{
+		if(verrou1.getEtat()==true)
+		{
+			imgVerrou1II = new ImageIcon("cadenas_ouvert.jpg");
+		}
+		else
+		{
+			imgVerrou1II = new ImageIcon("cadenas_ferme.jpg");
+		}
+		
+		if(verrou2.getEtat()==true)
+		{
+			imgVerrou2II = new ImageIcon("cadenas_ouvert.jpg");
+		}
+		else
+		{
+			imgVerrou2II = new ImageIcon("cadenas_ferme.jpg");
+		}
+		
+		if(verrou3.getEtat()==true)
+		{
+			imgVerrou3II = new ImageIcon("cadenas_ouvert.jpg");
+		}
+		else
+		{
+			imgVerrou3II = new ImageIcon("cadenas_ferme.jpg");
+		}
 	}
 }
 
