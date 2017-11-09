@@ -8,6 +8,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 public class fenetreTest extends JFrame{
@@ -118,6 +119,7 @@ public class fenetreTest extends JFrame{
 				setImageFond(new ImageIcon("Grand_coffre.gif"));
 
 				setImageFond(new ImageIcon("coffre_ouvert.png"));
+				fenetreVictoire();
 			}
 		}
 	}
@@ -167,6 +169,12 @@ public class fenetreTest extends JFrame{
 		{
 			imgVerrou3II = new ImageIcon("cadenas_ferme.jpg");
 		}
+	}
+	 
+	public void fenetreVictoire()
+	{
+		JOptionPane.showMessageDialog(null, "Vous avez gagné !");
+		dispose();
 	}
 }
 
