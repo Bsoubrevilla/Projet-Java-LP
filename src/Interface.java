@@ -33,7 +33,7 @@ public class Interface extends JFrame {
 	}
 
 	private ActionListener actionQuitter() {
-		// TODO Auto-generated method stub
+		// TODO Auto-generated method stub 
 		System.exit(0);
 		return null;
 	}
